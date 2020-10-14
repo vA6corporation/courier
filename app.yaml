@@ -1,0 +1,18 @@
+runtime: php74
+
+handlers:
+  - url: /(.*\.(gif|png|jpg|css|js))$
+    static_files: public/\1
+    upload: public/.*\.(gif|png|jpg|css|js)$
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
+    script: auto
+
+env_variables:
+  APP_KEY: base64:RGh/+4p/P6qSPtqkS6tr4FN/hot4o7zjbxOk4g4Z+hA=
+  APP_STORAGE: /tmp
+  APP_ENV: production
+  APP_DEBUG: false
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
